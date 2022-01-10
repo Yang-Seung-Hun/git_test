@@ -7,35 +7,22 @@
 
     <script>
         $(document).ready(function () {
-            login()
+
         });
 
         function login(){
             let id = $('#id').val();
             let pw = $('#pw').val();
-
             $.ajax({
                 type: 'POST',
                 url: '/login',
                 data: {id: id, pw: pw},
                 success: function (response) {
-                    alert(response['msg']);
+                    alert(response['result']);
                     window.location.reload()
                 }
             });
         }
-
-        // function deleteStar(name) {
-        //     $.ajax({
-        //         type: 'POST',
-        //         url: '/api/delete',
-        //         data: {name: name},
-        //         success: function (response) {
-        //             alert(response['msg']);
-        //             window.location.reload()
-        //         }
-        //     });
-        // }
 
     </script>
 

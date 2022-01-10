@@ -13,6 +13,10 @@ admin_id = "Yang"
 admin_pw = "123"
 SECRET_KEY = 'apple'
 
+@app.route('/')
+def home():
+    return render_template('index.html')
+
 @app.route("/login", methods=['POST'])
 def login_proc():
     user_id = request.form['id']
@@ -27,6 +31,8 @@ def login_proc():
         return jsonify({'result': 'success', 'token': token})
     else:
         return jsonify({'result': 'fail'})
+
+    print("여기 바뀜요!!!")
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
