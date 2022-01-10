@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script>
+        $(document).ready(function () {
+            login()
+        });
+
+        function login(){
+            let id = $('#id').val();
+            let pw = $('#pw').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/login',
+                data: {id: id, pw: pw},
+                success: function (response) {
+                    alert(response['msg']);
+                    window.location.reload()
+                }
+            });
+        }
+
+        // function deleteStar(name) {
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: '/api/delete',
+        //         data: {name: name},
+        //         success: function (response) {
+        //             alert(response['msg']);
+        //             window.location.reload()
+        //         }
+        //     });
+        // }
+
+    </script>
+
+</head>
+<body>
+
+
+    <input type="text" class="form-control" id="id">
+    <input type="text" class="form-control" id="pw">
+    <button onclick="login()" type="button" class="btn btn-primary">로그인</button>
+
+</body>
+</html>
